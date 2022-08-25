@@ -22,6 +22,7 @@ public class Menu {
             and added to the menu.
         */
         printCommand('c',"[C]reates a big cat");
+        printCommand('d',"[D]eletes a big cat");
         printCommand('l',"[L]ists all big Cats");
         printCommand('q',"[Q]uits");
         printLine();
@@ -60,6 +61,9 @@ public class Menu {
         switch(command) {
             case 'c':
                 executeCreate(catList);
+                break;
+            case 'd':
+                executeDelete(catList);
                 break;
             case 'l':
                 executeList(catList);
@@ -145,7 +149,7 @@ public class Menu {
             
             // Call function for unique names
             unique = isUnique(name, catList);
-            
+
             // If Name isn't unique alert user
             if (!unique) {
                 System.out.println("That name is already in use, please enter a different name");
@@ -225,5 +229,19 @@ public class Menu {
             if (name.equalsIgnoreCase(cat.name())) {unique = false;}
         }
         return unique;
-    }   // End of is Unique
+    }   // End of isUnique
+
+    public void executeDelete(LinkedList<Panthera> catList) {
+        String name = "";
+
+        System.out.println();
+        System.out.print("Enter a name for the big cat to delete: ");
+        name = input.nextLine();
+            
+        for (Panthera cat: catList) {
+            if (name.equalsIgnoreCase(cat.name())) {
+                catList.remove();
+            }   // End of if
+        }   // End of for
+    }   // End of executeDelete
 }   // End Menu Class
