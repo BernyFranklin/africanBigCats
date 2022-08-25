@@ -133,11 +133,26 @@ public class Menu {
 
     // create a cat, if it's unique
     public void executeCreate(LinkedList<Panthera> catList) {
-        // get the name
-        System.out.println();
-        System.out.print("Enter a name for the big cat to create: ");
-        String name = input.nextLine();
-        System.out.println();
+        // Flag for unique name
+        boolean unique = false;
+        String name = "";
+        
+        // get the name, loop until unique name found
+        while (!unique) {
+            System.out.println();
+            System.out.print("Enter a name for the big cat to create: ");
+            name = input.nextLine();
+            
+            // Call function for unique names
+            unique = isUnique(name, catList);
+            
+            // If Name isn't unique alert user
+            if (!unique) {
+                System.out.println("That name is already in use, please enter a different name");
+            }
+            System.out.println();
+
+        }   // End of loop
         /*
             TIP:
             In this area of the code, students would need to add in checking if the
@@ -180,7 +195,7 @@ public class Menu {
         while (!valid) {
             String str = "";
             printLine();
-            System.out.printf ("Please select the species of the cat");
+            System.out.printf ("Please select the species of the cat\n");
             printCommand('t', "[T]iger");
             printCommand('l', "[L]ion");
             printCommand('j', "[J]aguar");
@@ -203,4 +218,12 @@ public class Menu {
         return cat;
     }   // End of selectCat
 
+    public boolean isUnique (String name, LinkedList<Panthera> catList) {
+        boolean unique = true;
+
+        for (Panthera cat: catList) {
+            if (name.equalsIgnoreCase(cat.name())) {unique = false;}
+        }
+        return unique;
+    }   // End of is Unique
 }   // End Menu Class

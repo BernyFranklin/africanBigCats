@@ -1,8 +1,8 @@
 To do:
 [ ] 'C' Command
     [X] Enter Name
-    [ ] Select species
-    [ ] Error if name is duplicate
+    [X] Select species
+    [X] Error if name is duplicate
 
 [ ] 'D' Command
     [ ] Ask user for name
