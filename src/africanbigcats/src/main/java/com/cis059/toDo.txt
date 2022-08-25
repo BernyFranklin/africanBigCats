@@ -1,6 +1,6 @@
 To do:
 [ ] 'C' Command
-    [ ] Enter Name
+    [X] Enter Name
     [ ] Select species
     [ ] Error if name is duplicate
 

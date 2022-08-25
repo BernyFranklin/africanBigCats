@@ -104,10 +104,32 @@ public class Menu {
             Jaguars
             also needs to be added.
         */
-        
-        Panthera result = new Tiger(name);
-        return result;
-    }
+        // Locals
+        char cat = ' ';
+        Panthera dummyLoad = new Panthera(name);
+
+        // Call selectCat method
+        cat = selectCat();
+
+        // Create correct cat
+        switch (cat) {
+            case 't':
+                Panthera tiger = new Tiger(name); 
+                return tiger;
+            case 'l':
+                Panthera lion = new Lion(name);
+                return lion;
+            case 'j':
+                Panthera jaguar = new Jaguar(name);
+                return jaguar;
+            default:
+                System.out.println("Invalid selection");
+                break;
+        }   // End of switch
+
+        // Should never execute
+        return dummyLoad;
+    }   // End of getNewCat
 
     // create a cat, if it's unique
     public void executeCreate(LinkedList<Panthera> catList) {
