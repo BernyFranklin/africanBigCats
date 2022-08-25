@@ -12,7 +12,7 @@ public class App {
         char command = '_';
         // New list
         LinkedList<Panthera> catList = new LinkedList<>(); 
-        
+
         // loop until user quits
         while (command != 'q') {
             // print the menu
@@ -24,6 +24,8 @@ public class App {
             appMenu.executeCommand(command, catList);
             // move the cats to new positions in africa
             appMenu.update(catList);
+        }   // End of loop
+
     }   // End of main
 
 }   // End of App
