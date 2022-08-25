@@ -104,6 +104,7 @@ public class Menu {
             Jaguars
             also needs to be added.
         */
+        
         Panthera result = new Tiger(name);
         return result;
     }
@@ -146,4 +147,38 @@ public class Menu {
         TIP:
         Additional methods and functionality need to be added to this class.
     */
-}   // End Menu
+
+    public char selectCat () {
+        // Locals
+        boolean valid = false;           // Flag for menu loop
+        char cat = ' ';                  // Initialize cat
+        char[] cats = {'t', 'l', 'j'};   // Valid inputs
+
+        // Loop menu until valid input detected
+        while (!valid) {
+            String str = "";
+            printLine();
+            System.out.printf ("Please select the species of the cat");
+            printCommand('t', "[T]iger");
+            printCommand('l', "[L]ion");
+            printCommand('j', "[J]aguar");
+            printLine();
+            System.out.println("Enter selection: ");
+            str = input.nextLine();
+            str = str.toLowerCase();
+            cat = str.charAt(0);
+
+            for (int i = 0; i < cats.length; i++) {
+                if (cat == cats[i]) {valid = true;}
+            }   // End of for
+
+            if (!valid) {
+                System.out.printf ("\nInvalid cat selection, please try again\n\n");
+            }   // End of validity check
+        }   // End of menu loop
+
+        // Return valid input
+        return cat;
+    }   // End of selectCat
+
+}   // End Menu Class
