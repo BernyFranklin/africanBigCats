@@ -8,9 +8,13 @@
 
 package com.cis059;
 
+// Import utilities
 import java.util.*;
 
+// Start of App
 public class App {
+
+    // Start of main
     public static void main( String[] args ) {
         // Code imported from assignement
 
