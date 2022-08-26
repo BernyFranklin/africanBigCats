@@ -1,3 +1,11 @@
+/*
+ *  Frank Bernal
+ *  CIS-059 Object Oriented Programming
+ *  African Big Cats  
+ *  Start:      25 August 2022
+ *  Part 1:     25 August 2022
+ */
+
 package com.cis059;
 
 import java.util.*;

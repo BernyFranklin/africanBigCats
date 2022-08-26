@@ -1,22 +1,22 @@
 To do:
-[ ] 'C' Command
+[X] 'C' Command
     [X] Enter Name
     [X] Select species
     [X] Error if name is duplicate
 
-[ ] 'D' Command
-    [ ] Ask user for name
-    [ ] Search list for name 
-    [ ] Deletes cat by name
+[X] 'D' Command
+    [X] Ask user for name
+    [X] Search list for name 
+    [X] Deletes cat by name
 
-[ ] 'F' Command
-    [ ] Read string from user
-    [ ] Search list for partial match
-    [ ] Return's info for cat
+[X] 'F' Command
+    [X] Read string from user
+    [X] Search list for partial match
+    [X] Return's info for cat
 
-[ ] 'L' Command 
-    [ ] Returns list of all cats
+[X] 'L' Command 
+    [X] Returns list of all cats
 
-[ ] Implement Lion class
+[X] Implement Lion class
 
-[ ] Implement Jaguar class
+[X] Implement Jaguar class

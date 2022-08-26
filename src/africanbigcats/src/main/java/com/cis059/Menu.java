@@ -23,6 +23,7 @@ public class Menu {
         */
         printCommand('c',"[C]reates a big cat");
         printCommand('d',"[D]eletes a big cat");
+        printCommand('f',"[F]inds a big cat");
         printCommand('l',"[L]ists all big Cats");
         printCommand('q',"[Q]uits");
         printLine();
@@ -64,6 +65,9 @@ public class Menu {
                 break;
             case 'd':
                 executeDelete(catList);
+                break;
+            case 'f':
+                executeFind(catList);
                 break;
             case 'l':
                 executeList(catList);
@@ -240,8 +244,31 @@ public class Menu {
             
         for (Panthera cat: catList) {
             if (name.equalsIgnoreCase(cat.name())) {
-                catList.remove();
+                catList.remove(cat);
             }   // End of if
         }   // End of for
     }   // End of executeDelete
+
+    public void executeFind(LinkedList<Panthera> catList) {
+        String name = "";
+        boolean found = false;
+        System.out.println();
+        System.out.print("Enter a name for the big cat to find: ");
+        name = input.nextLine();
+        printLine();
+        System.out.printf("\nThe follwing big cats were found containing \'%s\'\n", name);
+        printLine();
+        for (Panthera cat: catList) {
+            if (cat.name().contains(name)) {
+                System.out.println(cat);
+                found = true;
+            }
+        }   // End of for
+
+        if (!found) {
+            System.out.println("No Results");
+        }  // End of not found
+
+    }   // End of executeFind
+
 }   // End Menu Class

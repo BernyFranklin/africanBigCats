@@ -22,6 +22,8 @@ public class Lion extends Panthera{
         s += "latitude: " + latitude();
         s += ", ";
         s += "fur: " + fur();
+        s += ", ";
+        s += "sleeps in trees: " + sleepsInTrees();
         s += " }";
         return s;
     }

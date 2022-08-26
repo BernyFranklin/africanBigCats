@@ -1,3 +1,5 @@
+
+
 package com.cis059;
 
 import java.util.Random;
@@ -15,11 +17,13 @@ public class PantheraGPS {
     private Float latitude;
     private Random longitudeRandom;
     private Random latitudeRandom;
+    private Boolean sleepsInTrees;
     // constructor
     public PantheraGPS(String name) {
         // initialize attributes
         this.name = name;
         this.species = "pantheraGPS";
+        this.sleepsInTrees = false;
         // seed the random number generators for repeatable results
         this.longitudeRandom = new Random();
         this.longitudeRandom.setSeed(this.seed(name + "longitude"));
@@ -51,8 +55,16 @@ public class PantheraGPS {
     public String species() {
         return this.species;
     }
+    public Boolean sleepsInTrees() {
+        return this.sleepsInTrees;
+    }
+
+    // setters
     public void setSpecies(String species) {
         this.species = species;
+    }
+    public void setSleepsInTrees(Boolean sleepsInTrees) {
+        this.sleepsInTrees = sleepsInTrees;
     }
     // make a seed, based on the name
     private Integer seed(String s) {

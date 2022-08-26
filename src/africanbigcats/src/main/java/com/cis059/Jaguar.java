@@ -6,6 +6,7 @@ public class Jaguar extends Panthera{
         super(name);
         // initialize attributes
         this.setSpecies("jaguar");
+        this.setSleepsInTrees(true);
     }
     // serializes attributes into a string
     @Override // override superclass method
@@ -22,6 +23,8 @@ public class Jaguar extends Panthera{
         s += "latitude: " + latitude();
         s += ", ";
         s += "fur: " + fur();
+        s += ", ";
+        s += "sleeps in trees: " + sleepsInTrees();
         s += " }";
         return s;
     }
