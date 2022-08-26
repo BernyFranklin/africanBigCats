@@ -240,7 +240,7 @@ public class Menu {
         name = input.nextLine();
             
         for (Panthera cat: catList) {
-            if (name.equalsIgnoreCase(cat.name())) {
+            if (name.equals(cat.name())) {
                 catList.remove(cat);
             }   // End of if
         }   // End of for
