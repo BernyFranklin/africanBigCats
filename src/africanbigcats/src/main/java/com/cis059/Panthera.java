@@ -1,21 +1,19 @@
 package com.cis059;
 
+// Start of Panthera
 public class Panthera extends PantheraGPS {
-    /*
-        TIP:
-        Students will need to add additional attributes and methods to complete 
-        this classes implementation.
-     */
     // constructor
     public Panthera(String name) {
         // call the super-class (parent) to instatiate it
         super(name);
         // initialize attributes
         this.setSpecies("panthera");
-    }
+    }   // End of constructor
+
     // serializes attributes into a string
     @Override // override superclass method
     public String toString() {
+        // Locals
         String s;
         // since the object is complex, we return a JSON formatted string
         s = "{ ";
@@ -28,5 +26,6 @@ public class Panthera extends PantheraGPS {
         s += "latitude: " + this.latitude();
         s += " }";
         return s;
-    }
-}
+    }   // End of toString
+
+}   // End of Panthera

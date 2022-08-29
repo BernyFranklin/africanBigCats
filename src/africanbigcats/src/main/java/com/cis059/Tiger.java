@@ -1,5 +1,6 @@
 package com.cis059;
 
+// Start of Tiger
 public class Tiger extends Panthera {
     // constructor
     public Tiger(String name) {
@@ -7,10 +8,12 @@ public class Tiger extends Panthera {
         super(name);
         // initialize attributes
         this.setSpecies("tiger");
-    }
+    }   // End of constructor
+
     // serializes attributes into a string
     @Override // override superclass method
     public String toString() {
+        // Locals
         String s;
         // since the object is complex, we return a JSON formatted string
         s = "{ ";
@@ -27,8 +30,11 @@ public class Tiger extends Panthera {
         s += "sleeps in trees: " + sleepsInTrees();
         s += " }";
         return s;
-    }
+    }   // End of toString
+
+    // fur() returns what pattern is on the cat's fur
     public String fur() {
         return "stripes";
-    }
-}
+    }   // End of fur
+
+}   // End of Tiger

@@ -233,14 +233,14 @@ public class Menu {
 
     // executeDelete() finds input name and removes that cat from the list
     public void executeDelete(LinkedList<Panthera> catList) {
-        String name = "";
+        String inputName = "";
 
         System.out.println();
         System.out.print("Enter a name for the big cat to delete: ");
-        name = input.nextLine();
+        inputName = input.nextLine();
             
         for (Panthera cat: catList) {
-            if (name.equals(cat.name())) {
+            if (inputName.equals(cat.name())) {
                 catList.remove(cat);
             }   // End of if
         }   // End of for
