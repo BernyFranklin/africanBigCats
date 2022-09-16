@@ -277,6 +277,7 @@ public class Menu {
         }  // End of not found
 
     }   // End of executeFind
+
     // executeRisk() selects two cats and prints the distance apart.
     public void executeRisk(LinkedList<Panthera> catList) {
         // Locals 
@@ -322,16 +323,21 @@ public class Menu {
         results = calculateWarning(userCat, userLong, userLat);
         // Display data
         printLine();
+        System.out.println(userCat);
+        printLine();
         System.out.printf("\nThe distance between you and %s is %.2f\n", userCat.name(), results);
     }
 
     // calculateRisk() calculates the distance between two cats
     public Float calculateRisk(Panthera cat1, Panthera cat2) {
+        // Locals
         float results = 0.0f;
         double distance = 0.0;
-        double longitude =(cat1.longitude() - cat2.longitude());
-        double latitude = (cat1.latitude() - cat2.latitude());
-        distance = Math.sqrt(Math.pow(longitude, 2) + Math.pow(latitude, 2));
+        // logitude an latitude values are (long1 - long2)^2 and (lat1 - lat2)^2
+        double longitude = Math.pow((cat1.longitude() - cat2.longitude()), 2);
+        double latitude = Math.pow((cat1.latitude() - cat2.latitude()), 2);
+        // get distance between 2 points
+        distance = Math.sqrt(longitude + latitude);
         results = (float) distance;
 
         return results;
@@ -339,11 +345,14 @@ public class Menu {
 
     // calculateWarning() with Panthera object, and 2 floats
     public Float calculateWarning(Panthera cat, Float userLong, Float userLat) {
+        // Locals
         float results = 0.0f;
         double distance = 0.0;
-        double longitude = (cat.longitude() - userLong);
-        double latitude = (cat.latitude() - userLat);
-        distance = Math.sqrt(Math.pow(longitude, 2) + Math.pow(latitude, 2));
+        // logitude an latitude values are (long1 - long2)^2 and (lat1 - lat2)^2
+        double longitude = Math.pow((cat.longitude() - userLong), 2);
+        double latitude = Math.pow((cat.latitude() - userLat), 2);
+        // get distance between 2 points
+        distance = Math.sqrt(longitude + latitude);
         results = (float) distance;
 
         return results;
