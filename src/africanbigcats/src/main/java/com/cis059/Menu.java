@@ -295,7 +295,11 @@ public class Menu {
         // Calculate
         distance = calculateRisk(cat1, cat2);
         // Display data
-        System.out.printf("\nThe distance between %s and %s is %.2f\n", cat1.name(), cat2.name(), distance);
+        printLine();
+        System.out.println(cat1);
+        System.out.println(cat2);
+        printLine();
+        System.out.printf("The distance between %s and %s is %.2f\n", cat1.name(), cat2.name(), distance);
     }
 
     // calculateRisk() calculates the distance between two cats
@@ -304,6 +308,18 @@ public class Menu {
         double distance = 0.0;
         double longitude =(cat1.longitude() - cat2.longitude());
         double latitude = (cat1.latitude() - cat2.latitude());
+        distance = Math.sqrt(Math.pow(longitude, 2) + Math.pow(latitude, 2));
+        results = (float) distance;
+
+        return results;
+    }
+
+    // calculateWarning() with Panthera object, and 2 floats
+    public Float calculateWarning(Panthera cat, Float userLong, Float userLat) {
+        float results = 0.0f;
+        double distance = 0.0;
+        double longitude = (cat.longitude() - userLong);
+        double latitude = (cat.latitude() - userLat);
         distance = Math.sqrt(Math.pow(longitude, 2) + Math.pow(latitude, 2));
         results = (float) distance;
 
