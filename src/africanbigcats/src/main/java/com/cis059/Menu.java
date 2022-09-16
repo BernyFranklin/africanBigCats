@@ -2,7 +2,6 @@ package com.cis059;
 
 // Import utilities
 import java.util.*;
-import java.lang.Object;
 import java.lang.Math;
 
 // Start of Menu
@@ -83,7 +82,7 @@ public class Menu {
                 executeRisk(catList);
                 break;
             case 'w':
-                System.out.println("WarningReport");
+                executeWarning(catList);
                 break;
             case 'q':
                 executeQuit();
@@ -299,12 +298,31 @@ public class Menu {
         System.out.println(cat1);
         System.out.println(cat2);
         printLine();
-        System.out.printf("The distance between %s and %s is %.2f\n", cat1.name(), cat2.name(), distance);
+        System.out.printf("\nThe distance between %s and %s is %.2f\n", cat1.name(), cat2.name(), distance);
     }
 
     // executeWarning() asks for user location and cat object, displays distance between the two.
-    public void executeWarning() {
-
+    public void executeWarning(LinkedList<Panthera> catList) {
+        // Locals
+        Panthera userCat;
+        Float userLong;
+        Float userLat;
+        Float results;
+        // Description
+        printLine();
+        System.out.println("We will check to see how close you are to a particular cat");
+        printLine();
+        // Ask for cat
+        userCat = chooseCat("a", catList);
+        // Ask for long
+        userLong = enterCoordinates("Longitude");
+        // Ask for lat
+        userLat = enterCoordinates("Latitude");
+        // Calculate
+        results = calculateWarning(userCat, userLong, userLat);
+        // Display data
+        printLine();
+        System.out.printf("\nThe distance between you and %s is %.2f\n", userCat.name(), results);
     }
 
     // calculateRisk() calculates the distance between two cats
@@ -333,6 +351,7 @@ public class Menu {
 
     // chooseCat() pulls a cat object from the list
     public Panthera chooseCat(String position, LinkedList<Panthera> catList) {
+        // Locals
         String name = "";
         Boolean found = false;
         Panthera foundCat = new Panthera("");
