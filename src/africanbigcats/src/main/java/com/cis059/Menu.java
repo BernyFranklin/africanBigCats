@@ -2,6 +2,8 @@ package com.cis059;
 
 // Import utilities
 import java.util.*;
+import java.lang.Object;
+import java.lang.Math;
 
 // Start of Menu
 public class Menu {
@@ -76,6 +78,12 @@ public class Menu {
                 break;
             case 'l':
                 executeList(catList);
+                break;
+            case 'r':
+                System.out.println("RiskReport");
+                break;
+            case 'w':
+                System.out.println("WarningReport");
                 break;
             case 'q':
                 executeQuit();
@@ -270,5 +278,62 @@ public class Menu {
         }  // End of not found
 
     }   // End of executeFind
+    // executeRisk() selects two cats and prints the distance apart.
+    public void executeRisk(LinkedList<Panthera> catList) {
+        // Locals 
+        Panthera cat1;
+        Panthera cat2;
+        Float distance = 0.0f;
+        // Description
+        System.out.println("We will check to see if two specified cats are at risk of encountering one another");
+        printLine();
+        // Ask for cat1
+        cat1 = chooseCat("first", catList);
+        // Ask for cat2
+        cat2 = chooseCat("second", catList);
+        // Calculate
+        distance = calculateRisk(cat1, cat2);
+        // Display data
+        System.out.printf("\nThe distance between %s and %s is %.2f\n", cat1.name(), cat2.name(), distance);
+    }
+
+    // calculateRisk() calculates the distance between two cats
+    public Float calculateRisk(Panthera cat1, Panthera cat2) {
+        float results = 0.0f;
+        double distance = 0.0;
+        double longitude =(cat1.longitude() - cat2.longitude());
+        double latitude = (cat1.latitude() - cat2.latitude());
+        distance = Math.sqrt(Math.pow(longitude, 2) + Math.pow(latitude, 2));
+        results = (float) distance;
+
+        return results;
+    }
+
+    // chooseCat() pulls a cat object from the list
+    public Panthera chooseCat(String position, LinkedList<Panthera> catList) {
+        String name = "";
+        Boolean found = false;
+        Panthera foundCat = new Panthera("");
+        // Prompt user for cat name until one matches
+        while (!found) {
+            System.out.printf("\nEnter name of %s cat: ", position);
+            name = input.nextLine();
+            // Search for name in catList
+            for (Panthera cat: catList) {
+                // If found, copy object into foundCat
+                if (cat.name().contains(name)) {
+                found = true;
+                foundCat = cat;
+                break;
+                }
+            }
+            // Alert user cat was not found
+            if (!found) {
+                System.out.println("ERROR: Name not found");
+            }
+        }
+        // Return Panthera Object
+        return foundCat;
+    }
 
 }   // End of Menu 
