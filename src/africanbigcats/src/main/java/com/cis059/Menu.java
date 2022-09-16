@@ -80,7 +80,7 @@ public class Menu {
                 executeList(catList);
                 break;
             case 'r':
-                System.out.println("RiskReport");
+                executeRisk(catList);
                 break;
             case 'w':
                 System.out.println("WarningReport");
@@ -285,6 +285,7 @@ public class Menu {
         Panthera cat2;
         Float distance = 0.0f;
         // Description
+        printLine();
         System.out.println("We will check to see if two specified cats are at risk of encountering one another");
         printLine();
         // Ask for cat1
