@@ -24,6 +24,8 @@ public class Menu {
         printCommand('d',"[D]eletes a big cat");
         printCommand('f',"[F]inds a big cat");
         printCommand('l',"[L]ists all big Cats");
+        printCommand('r',"[R]isk Report");
+        printCommand('w',"[W]arning Report");
         printCommand('q',"[Q]uits");
         printLine();
     }   // End of print()
