@@ -302,6 +302,11 @@ public class Menu {
         System.out.printf("The distance between %s and %s is %.2f\n", cat1.name(), cat2.name(), distance);
     }
 
+    // executeWarning() asks for user location and cat object, displays distance between the two.
+    public void executeWarning() {
+
+    }
+
     // calculateRisk() calculates the distance between two cats
     public Float calculateRisk(Panthera cat1, Panthera cat2) {
         float results = 0.0f;
@@ -351,6 +356,22 @@ public class Menu {
         }
         // Return Panthera Object
         return foundCat;
+    }
+
+    // enterCoordinates() prompts user for coordinate and ensures it's a valid number
+    public Float enterCoordinates(String longOrLat) {
+        Float maxCoord = 1000.0f;
+        Float userCoord = 9999.9f;
+        while (userCoord >= maxCoord) {
+            System.out.printf("\nPlease enter your %s: ", longOrLat);
+            userCoord = input.nextFloat();
+            // Is userCoord out of bounds or negative?
+            if (userCoord >= maxCoord || userCoord < 0) {
+                System.out.println("Please enter a value less than 1000");
+            }
+        }
+        // Return valid value
+        return userCoord;
     }
 
 }   // End of Menu 
