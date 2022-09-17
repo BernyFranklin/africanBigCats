@@ -398,6 +398,8 @@ public class Menu {
                 System.out.println("Please enter a value less than 1000");
             }
         }
+        // Used to clear input buffer
+        input.nextLine();
         // Return valid value
         return userCoord;
     }
